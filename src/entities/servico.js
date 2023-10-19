@@ -7,7 +7,7 @@ export default class Serviço{
         this.corteSobrancelha = corteSobrancelha;
         this.corteBarbaSobrancelha = corteBarbaSobrancelha;
         this.pigmentacao = pigmentacao;
-    
+        this.undercutFem = undercutFem;
     }
 }
 
