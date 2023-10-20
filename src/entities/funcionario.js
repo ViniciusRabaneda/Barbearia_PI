@@ -1,13 +1,13 @@
 export default class Funcionario {
-    contructor(ID_Funcionario, Nome, CPF, RG, email, endereço, PIS, horarioExpediente, Salario){
-        this.ID_Funcionario = ID_Funcionario;
-        this.Nome = Nome;
-        this.CPF = CPF;
-        this.RG = RG;
+    constructor(idFuncionario, nome, cpf, rg, email, endereco, pis, horarioExpediente, salario){
+        this.idFuncionario = idFuncionario;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.rg = rg;
         this.email = email;
-        this.endereço = endereço;
-        this.PIS = PIS;
+        this.endereco = endereco;
+        this.pis = pis;
         this.horarioExpediente = horarioExpediente;
-        this.Salario = Salario;
+        this.salario = salario;
     }      
 }
