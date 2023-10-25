@@ -1,4 +1,4 @@
-class AgendaFuncionario{
+export default class AgendaFuncionario{
     constructor(idFuncionario,diaSemana,horarioEntrada,horarioSaida){
         this.idFuncionario = idFuncionario // chave estrangeira
         this.diaSemana = diaSemana   // os horarios disponíveis para aquela semana
