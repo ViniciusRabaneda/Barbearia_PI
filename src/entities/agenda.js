@@ -1,9 +1,11 @@
 class Agenda{
-    constructor(idAgenda, idFuncionario,idServico,dataAgenda){
-        this.idAgenda = idAgenda
+    constructor(idAgenda,idCliente,idFuncionario,idServico,dataAgenda,horarioInicio,horarioFim){
+        this.idAgenda = idAgenda 
+        this.idCliente = idCliente
         this.idFuncionario = idFuncionario
         this.idServico = idServico
-        this.dataAgenda = dataAgenda
+        this.horarioInicio = horarioInicio
+        this.horarioFim = horarioFim
     }
 }
 
