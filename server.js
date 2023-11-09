@@ -1,5 +1,5 @@
 //importando o app do arquivo app.js
-import app from './src/routes/app.js'
+import app from './src/routes/cliente.js'
 //atribuindo uma porta ao servidor, letra maiuscula porque é constante
 const PORT = 3000
 
