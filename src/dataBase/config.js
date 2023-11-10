@@ -12,6 +12,25 @@ const db = {
   ],
   clientes: [
     
+  ],
+  funcionario: [
+
+
+  ],
+  // Gabriel, coloquei só 1 funcionário porque é só o JP, ai se você for mudar o "id" dele, troca no meu
+  // código por favor
+  agendaJP: [
+    new AgendaFuncionario(1,['09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30',
+    '13:00','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30','18:00','19:00'],'08:00','19:30')
+  ],
+  agendamento: [
+    new Agenda(100,1,1,2,'14:00','14:30'),
+    new Agenda(100,2,1,1,'14:30','15:00'),
+    new Agenda(100,3,1,1,'15:00','15:30'),
+    new Agenda(100,4,1,2,'15:30','16:00'),
+    new Agenda(100,5,1,1,'16:00','16:30'),
+    new Agenda(100,1,1,1,'16:30','17:00'),
+    new Agenda(100,1,1,2,'17:00','17:30')
   ]
   
 }
