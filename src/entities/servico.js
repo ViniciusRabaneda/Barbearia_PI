@@ -1,6 +1,7 @@
-export default class Serviço{
-    constructor(corte, barba, sobrancelha, corteBarba, corteSobrancelha, corteBarbaSobrancelha, pigmentacao, undercutFem){
-        this.corte = corte;
+export default class Servico{
+    constructor(idServico, corteCabelo, barba, sobrancelha, corteBarba, corteSobrancelha, corteBarbaSobrancelha, pigmentacao, undercutFem){
+        this.idServico = idServico;
+        this.corteCabelo = corteCabelo;
         this.barba = barba;
         this.sobrancelha = sobrancelha;
         this.corteBarba = corteBarba;
@@ -10,4 +11,3 @@ export default class Serviço{
         this.undercutFem = undercutFem;
     }
 }
-
