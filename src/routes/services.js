@@ -1,9 +1,9 @@
 import { Router } from "express"
-import ServiceModel from "../models/TarefaModel"
+import ServiceModel from '../models/servicesModel.js'
 
-export default class ServiceModel {
+export default class ServiceRoutes {
   constructor(db) {
-    this.db = new Servico(db)
+    this.db = new ServiceModel(db)
   }
 
   routes() {
