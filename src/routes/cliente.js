@@ -50,5 +50,15 @@ app.delete('/Cliente/:id', (req,res)=>{
     res.send(`Cliente com id ${req.params.idCliente} Excluido com sucesso`)
 })
 
+app.put('/Cliente/:id', (req,res)=>{
+    let index = buscarIndexSelecao(req.params.id)
+    cliente[index].nome = req.body.nome
+    cliente[index].documento = req.body.documento
+    cliente[index].email = req.body.email
+    cliente[index].senha = req.body.senha
+
+    res.json(cliente)
+})
+
 //exportando a instância
 export default app
