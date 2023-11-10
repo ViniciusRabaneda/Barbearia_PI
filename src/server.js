@@ -1,14 +1,16 @@
 //importando o app do arquivo app.js
+import express from 'express'
 import db from './dataBase/config.js'
-import app from './routes/cliente.js'
-import ServicesRoute from './routes/cliente.js'
+import ServicesRoute from './routes/services.js'
 //atribuindo uma porta ao servidor, letra maiuscula porque é constante
-const PORT = 3000
 
-//escutar a porta 3000
+const app = new express()
+app.use(express.json())
+
 const rotaServices = new ServicesRoute(db)
 app.use('/servicos', rotaServices.routes());
 
-app.listen(PORT,(req,res) => {
-    console.log(`Servidor Rodando no Endereço http://localhost:${PORT}`)
+//escutar a porta 3000
+app.listen(3000,() => {
+    console.log("Servidor Rodando no Endereço http://localhost:3000")
 })
