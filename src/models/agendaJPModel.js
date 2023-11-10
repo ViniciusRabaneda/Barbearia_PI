@@ -1,5 +1,6 @@
 import BaseModel from "./baseModel.js"
 
+// Validar
 export default class AgendaModel extends BaseModel {
     constructor(db) {
         super(db, 'agendaJP')
