@@ -3,6 +3,7 @@ import express from "express"
 import db from './src/dataBase/config.js'
 import ServicesRoute from './src/routes/services.js'
 import ClienteRoutes from './src/routes/ClienteRoutes.js'
+import FuncionarioRoutes from "./src/routes/FuncionarioRoutes.js"
 
 //atribuindo uma porta ao servidor, letra maiuscula porque é constante
 
@@ -11,11 +12,14 @@ const app = new express()
 app.use(express.json())
 
 
-const clienteRoutes = new ClienteRoutes(db)
-
+const rotacliente = new ClienteRoutes(db)
 // app.use utilizada para indicar o caminho
 // utiliza o caminho /clientes como raiz para todas as rotas, mudando só o complemento
-app.use('/clientes', clienteRoutes.routes());
+app.use('/clientes', rotacliente.routes());
+
+
+const rotafuncionario = new FuncionarioRoutes(db)
+app.use('/funcionarios', rotafuncionario.routes());
 
 const rotaServices = new ServicesRoute(db)
 app.use('/servicos', rotaServices.routes());

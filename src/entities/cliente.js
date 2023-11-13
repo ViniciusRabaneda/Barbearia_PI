@@ -1,9 +1,9 @@
 // criando a classe Cliente e exportando para outros arquivos
 export default class Cliente{
-    constructor(idCliente, nomeCliente, documentoCliente, emailCliente, senhaCliente){
+    constructor(idCliente, nomeCliente, cpfCliente, emailCliente, senhaCliente){
         this.idCliente = idCliente
         this.nomeCliente = nomeCliente
-        this.documentoCliente = documentoCliente
+        this.cpfCliente = cpfCliente
         this.emailCliente = emailCliente
         this.senhaCliente = senhaCliente
     }
