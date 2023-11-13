@@ -4,6 +4,8 @@ import db from './src/dataBase/config.js'
 import ServicesRoute from './src/routes/services.js'
 import ClienteRoutes from './src/routes/ClienteRoutes.js'
 import FuncionarioRoutes from "./src/routes/FuncionarioRoutes.js"
+import swaggerUi from "swagger-ui-express"
+import swaggerDocument from "./src/swagger/config.js"
 
 //atribuindo uma porta ao servidor, letra maiuscula porque é constante
 
@@ -23,6 +25,9 @@ app.use('/funcionarios', rotafuncionario.routes());
 
 const rotaServices = new ServicesRoute(db)
 app.use('/servicos', rotaServices.routes());
+
+// Swagger
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, { explorer: true }))
 
 //escutar a porta 3000
 app.listen(3000,() => {
