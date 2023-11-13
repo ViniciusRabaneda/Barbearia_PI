@@ -2,7 +2,7 @@
 import Servico from "../entities/servico.js"
 import Cliente from "../entities/Cliente.js"
 import AgendaFuncionario from "../entities/agendaFuncionario.js"
-import Funcionario from "../entities/funcionario.js"
+import Funcionario from "../entities/Funcionario.js"
 import Agenda from "../entities/agenda.js"
 
 // Cria um banco de dados baseado nas classes importadas e guarda na memória do computador
@@ -19,9 +19,9 @@ const db = {
     new Cliente(3,"Marcelo",88839382,"marcelinho@gmail.com","Gas")
     
   ],
-  funcionario: [
-
-
+  funcionarios: [
+    new Funcionario(1,"Rafael",45632334,5064323,"rafael@gmail.com","Rua alcatão 27",5000,"08:00","18:00",5000),
+    new Funcionario(2,"Amanda",23232334,66064323,"amanda@gmail.com","Rua Ruy Barbosa 47",6000,"08:00","18:00",4500)
   ],
   // Gabriel, coloquei só 1 funcionário porque é só o JP, ai se você for mudar o "id" dele, troca no meu
   // código por favor
