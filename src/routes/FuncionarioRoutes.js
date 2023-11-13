@@ -1,3 +1,4 @@
+//funcionario routes
 import { Router } from "express";
 import FuncionarioModel from "../models/FuncionarioModel.js"
 
