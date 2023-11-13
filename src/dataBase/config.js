@@ -1,8 +1,11 @@
+// importa todas as classes criadas
 import Servico from "../entities/servico.js"
-import Cliente from "../entities/cliente.js"
+import Cliente from "../entities/Cliente.js"
 import AgendaFuncionario from "../entities/agendaFuncionario.js"
 import Funcionario from "../entities/funcionario.js"
 import Agenda from "../entities/agenda.js"
+
+// Cria um banco de dados baseado nas classes importadas e guarda na memória do computador
 
 const db = {
   servicos: [
@@ -11,6 +14,9 @@ const db = {
 
   ],
   clientes: [
+    new Cliente(1,"Marcos",239232,"marquinho@hotmail.com","abacaxi"),
+    new Cliente(2,"Luis",40028922,"luisito@hotmail.com","Luz"),
+    new Cliente(3,"Marcelo",88839382,"marcelinho@gmail.com","Gas")
     
   ],
   funcionario: [
@@ -35,5 +41,5 @@ const db = {
   ]
   
 }
-
+// exporta o db
 export default db
