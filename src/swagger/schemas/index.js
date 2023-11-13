@@ -1,1 +1,1 @@
-export * from '/funcionarios.js'
+export * from './funcionarios.js'
