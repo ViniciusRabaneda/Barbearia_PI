@@ -40,7 +40,7 @@ const funcionarios = {
                 content: {
                     "application/json": {
                         schema: {
-                            $ref: "#/schemasFuncionario",
+                            $ref: "#/schemas/Funcionario",
                         },
                     },
                 },
