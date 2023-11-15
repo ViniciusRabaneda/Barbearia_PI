@@ -13,8 +13,8 @@ export default class ServiceRoutes {
       res.json(servico)
     })
 
-    router.get('/:idServico', (req, res) => {
-      const servico = this.db.findById(req.params.idServico)
+    router.get('/:id', (req, res) => {
+      const servico = this.db.findById(req.params.id)
       if (!servico) {
         res.status(404).json({ message: 'Serviço não encontrado' })
       } else {
@@ -29,17 +29,17 @@ export default class ServiceRoutes {
       res.json(novoServico)
     })
 
-    router.put('/:idServico', (req, res) => {
-      const { idServico } = req.params
+    router.put('/:id', (req, res) => {
+      const { id } = req.params
       const servico = req.body
 
-      this.db.update(idServico, servico)
+      this.db.update(id, servico)
       res.json(servico)
 
     })
-    router.delete('/:idServico', (req, res) => {
-      const { idServico } = req.params
-      this.db.delete(idServico)
+    router.delete('/:id', (req, res) => {
+      const { id } = req.params
+      this.db.delete(id)
       res.json({ message: 'Serviço removido com sucesso' })
 
     })

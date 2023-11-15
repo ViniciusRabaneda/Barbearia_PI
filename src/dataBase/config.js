@@ -9,8 +9,9 @@ import Agenda from "../entities/agenda.js"
 
 const db = {
   servicos: [
-    new Servico(1, true, false, false, false, false, false, false, false),
-    new Servico(2, false, false, false, true, false, false, false, false)
+    new Servico(1, 2, true, false, false, false, false, false, false, false),
+    new Servico(2, 1, false, false, false, true, false, false, false, false),
+    new Servico(3, 3, false, false, false, false, true, false, false, false)
 
   ],
   clientes: [

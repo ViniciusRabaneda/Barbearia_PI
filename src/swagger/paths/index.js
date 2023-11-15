@@ -1,5 +1,8 @@
 import funcionarios from "./funcionarios.js"
+import { servicosPath, getDeletePutServicesById } from "./servicos.js"
 
 export default {
-    '/funcionarios': funcionarios
+    '/funcionarios': funcionarios,
+    '/servicos': servicosPath,
+    '/servicos/{id}': getDeletePutServicesById
 }

@@ -5,7 +5,7 @@ export default class ServiceModel extends BaseModel {
         super(db, 'servicos')
     }
 
-    findAllByUserId(serviceId) {
-        return this.db[this.entity].filter(item => item.usuarioId === serviceId)
+    findAllByServiceId(id) {
+        return this.db[this.entity].filter(item => item.id == id)
     }
 }
