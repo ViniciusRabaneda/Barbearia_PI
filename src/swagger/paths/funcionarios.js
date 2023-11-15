@@ -1,11 +1,11 @@
 const funcionarios = {
     get: {
-        descriptions: "Retorna a lista de funcionários",
+        description: "Retorna a lista de funcionários",
         tags: ["Funcionários"],
         responses: {
             200: {
                 description: "Lista de funcionários",
-                cantent: {
+                content: {
                     "application/json": {
                         schema: {
                             type: "array",
@@ -26,7 +26,7 @@ const funcionarios = {
         tags: ["Funcionários"],
         requestBody: {
             required: true,
-            contente: {
+            content: {
                 "application/json": {
                     schema: {
                         $ref: "#/schemas/Funcionario",
