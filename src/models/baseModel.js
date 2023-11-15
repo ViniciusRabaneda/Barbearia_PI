@@ -21,7 +21,7 @@ export default class BaseModel {
     }
 // altera um cadastro existente
     update(id, item) {
-        const index = this.db[this.entity].findIndex(item => item.id === id)
+        const index = this.db[this.entity].findIndex(item => item.id == id)
         if (index === -1) {
             throw Error('O registro informado não existe')
         }
@@ -31,7 +31,7 @@ export default class BaseModel {
 // apaga um cadastro usando o splice
 
     delete(id) {
-        const index = this.db[this.entity].findIndex(item => item.id === id)
+        const index = this.db[this.entity].findIndex(item => item.id == id)
         if (index === -1) {
             throw Error('O registro informado não existe')
         }
