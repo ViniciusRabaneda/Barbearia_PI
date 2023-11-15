@@ -1,7 +1,7 @@
 import { Router } from "express";
 import AgendaFuncionario from "../models/AgendaFuncionario";
 // Validar
-export default class AgendaFuncionarioController {
+export default class AgendaRoutes {
   constructor(db) {
     this.db = db; 
   }
