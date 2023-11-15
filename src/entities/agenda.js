@@ -1,6 +1,6 @@
 export default class Agenda {
-    constructor(idAgenda,idCliente,idFuncionario,idServico,horarioInicio,horarioFim){
-        this.idAgenda = idAgenda 
+    constructor(id,idCliente,idFuncionario,idServico,horarioInicio,horarioFim){
+        this.id = id 
         this.idCliente = idCliente
         this.idFuncionario = idFuncionario
         this.idServico = idServico
