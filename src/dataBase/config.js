@@ -1,6 +1,6 @@
 // importa todas as classes criadas
 import Servico from "../entities/servico.js"
-import Cliente from "../entities/Cliente.js"
+import Cliente from "../entities/cliente.js"
 import Funcionario from "../entities/Funcionario.js"
 import Agenda from "../entities/agenda.js"
 import HorariosDisponiveis from "../entities/Horarios.js"

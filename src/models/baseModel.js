@@ -22,7 +22,7 @@ export default class BaseModel {
 // altera um cadastro existente
     update(id, item) {
         const index = this.db[this.entity].findIndex(item => item.id == id)
-        if (index === -1) {
+        if (index == -1) {
             throw Error('O registro informado não existe')
         }
         this.db[this.entity][index] = item
@@ -32,7 +32,7 @@ export default class BaseModel {
 
     delete(id) {
         const index = this.db[this.entity].findIndex(item => item.id == id)
-        if (index === -1) {
+        if (index == -1) {
             throw Error('O registro informado não existe')
         }
         this.db[this.entity].splice(index, 1)

@@ -57,7 +57,7 @@ export const getDeletePutClientesById = {
         description: "Retorna um cliente pelo Id",
         tags: ["Clientes"],
         parameters: [{
-            name: "idCliente",
+            name: "id",
             in: "path",
             description: "Id do Cliente",
             required: true,
@@ -87,7 +87,7 @@ export const getDeletePutClientesById = {
         description: "Deleta um cliente pelo id",
         tags: ["Clientes"],
         parameters: [{
-            name: "idCliente",
+            name: "id",
             in: "path",
             description: "Id do Cliente",
             required: true,
@@ -114,7 +114,7 @@ export const getDeletePutClientesById = {
         description: "Altera os campos da entidade Cliente",
         tags: ["Clientes"],
         parameters: [{
-            name: "idCliente",
+            name: "id",
             in: "path",
             description: "Id do Cliente",
             required: true,

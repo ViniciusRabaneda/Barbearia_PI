@@ -1,8 +1,8 @@
 export const clientesSchema = {
     type: "object",
-    required: ["idCliente", "nomeCliente", "cpfCliente", "emailCliente", "senhaCliente" ],
+    required: ["id", "nomeCliente", "cpfCliente", "emailCliente", "senhaCliente" ],
     properties: {
-        idCliente: {
+        id: {
             type: "number",
             description: "ID do Cliente",
         },
@@ -24,10 +24,10 @@ export const clientesSchema = {
         },
     },
     example: {
-        idCliente: 1,
+        id: 1,
         nomeCliente: "Pedro",
         cpfCliente: "423.134.596-71",
-        emailCliente: "pedrinhodopneu@gmaidCliente, nomeCliente, cpfCliente, emailCliente, senhaClienteil.com",
+        emailCliente: "pedrinhodopneu@gmaid",
         senhaCliente: "palmeirasnaotemmundial",
     },
 }
