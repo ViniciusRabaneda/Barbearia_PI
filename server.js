@@ -6,6 +6,7 @@ import ClienteRoutes from './src/routes/ClienteRoutes.js'
 import FuncionarioRoutes from "./src/routes/FuncionarioRoutes.js"
 import swaggerUi from "swagger-ui-express"
 import swaggerDocument from "./src/swagger/config.js"
+import AgendaRoutes from "./src/routes/agenda.js"
 
 //atribuindo uma porta ao servidor, letra maiuscula porque é constante
 
@@ -25,6 +26,11 @@ app.use('/funcionarios', rotafuncionario.routes());
 
 const rotaServices = new ServicesRoute(db)
 app.use('/servicos', rotaServices.routes());
+
+// Agenda
+
+const rotaAgenda = new AgendaRoutes(db)
+app.use('/agendaJP', rotaAgenda.routes());
 
 // Swagger
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, { explorer: true }))
