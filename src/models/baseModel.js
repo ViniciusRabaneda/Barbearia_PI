@@ -13,7 +13,7 @@ export default class BaseModel {
     }
 // Traz os dados da entidade pelo id
     findById(id) {
-        return this.db[this.entity].find(item => item.id === id)
+        return this.db[this.entity].find(item => item.id == id)
     }
 // cria um novo cadastro
     create(item) {
