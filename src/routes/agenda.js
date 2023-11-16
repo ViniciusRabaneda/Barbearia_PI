@@ -1,5 +1,5 @@
 import { Router } from "express";
-import AgendaFuncionario from "../models/AgendaFuncionario";
+
 // Validar
 export default class AgendaRoutes {
   constructor(db) {

@@ -51,6 +51,7 @@ export const servicosPath = {
         },
     }
 }
+
 export const getDeletePutServicesById = {
 
     get: {
@@ -59,7 +60,7 @@ export const getDeletePutServicesById = {
         parameters: [{
             name: "id",
             in: "path",
-            description: "Id do servi?o",
+            description: "Id do servico",
             required: true,
             schema: {
                 type: "integer"
@@ -68,7 +69,7 @@ export const getDeletePutServicesById = {
 
         responses: {
             200: {
-                description: "Servi?o",
+                description: "Servico",
                 content: {
                     "application/json": {
                     schema: {
