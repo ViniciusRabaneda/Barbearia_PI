@@ -4,7 +4,7 @@ export default class AgendamentoModel extends BaseModel {
     constructor(db) {
         super(db, 'agendamento') 
     }
-    findAllByAgendaId(id) {
+    /* findAllByAgendaId(id) {
       return this.db[this.entity].filter(item => item.id == id)
     }
     findById(id) {
@@ -35,5 +35,5 @@ export default class AgendamentoModel extends BaseModel {
         } else {
             throw new Error('Método findById não está implementado na instância db');
         }
-    }  
+    }   */
 }
