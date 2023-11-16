@@ -1,5 +1,4 @@
 import { Router } from "express";
-
 // Validar
 export default class AgendaRoutes {
   constructor(db) {

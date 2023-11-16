@@ -1,16 +1,16 @@
-export const funcionariosPath = {
+export const clientesPath = {
     get: {
-        description: "Retorna a lista de funcionários",
-        tags: ["Funcionários"],
+        description: "Retorna a lista de Clientes",
+        tags: ["Clientes"],
         responses: {
             200: {
-                description: "Lista de funcionários",
+                description: "Lista de Clientes",
                 content: {
                     "application/json": {
                         schema: {
                             type: "array",
                             items: {
-                                $ref: "#/schemas/Funcionario",
+                                $ref: "#/schemas/clientesSchema",
                             },
                         },
                     },
@@ -21,26 +21,26 @@ export const funcionariosPath = {
             },
         },
     },
-    post: {
-        description: "Adiciona novo funcionário",
-        tags: ["Funcionários"],
+    post:{
+        description: "Adiciona novo Cliente",
+        tags: ["Clientes"],
         requestBody: {
             required: true,
             content: {
                 "application/json": {
                     schema: {
-                        $ref: "#/schemas/Funcionario",
+                        $ref: "#/schemas/clientesSchema",
                     },
                 },
             },
         },
         responses: {
             200: {
-                description: "Funcionário adicionado",
+                description: "Cliente adicionado",
                 content: {
                     "application/json": {
                         schema: {
-                            $ref: "#/schemas/Funcionario",
+                            $ref: "#/schemas/clientesSchema",
                         },
                     },
                 },
@@ -51,16 +51,15 @@ export const funcionariosPath = {
         },
     }
 }
-
-export const getDeletePutServiceById = {
+export const getDeletePutClientesById = {
 
     get: {
-        description: "Retorna um funcionário pelo Id",
-        tags: ["Funcionários"],
+        description: "Retorna um cliente pelo Id",
+        tags: ["Clientes"],
         parameters: [{
             name: "id",
             in: "path",
-            description: "Id do funcionário",
+            description: "Id do Cliente",
             required: true,
             schema: {
                 type: "integer"
@@ -69,57 +68,55 @@ export const getDeletePutServiceById = {
 
         responses: {
             200: {
-                description: "Funcionario",
+                description: "Clientes",
                 content: {
                     "application/json": {
-                        schema: {
-                            $ref: "#/schemas/Funcionario",
-                        },
+                    schema: {
+                        $ref: "#/schemas/clientesSchema",
                     },
                 },
             },
-            500: {
+        },
+        500:{
                 description: "Erro interno",
             },
         },
     },
-
     delete: {
 
-        description: "Deleta um funcionário pelo id",
-        tags: ["Funcionários"],
+        description: "Deleta um cliente pelo id",
+        tags: ["Clientes"],
         parameters: [{
             name: "id",
             in: "path",
-            description: "Id do funcionário",
+            description: "Id do Cliente",
             required: true,
             schema: {
                 type: "integer"
-            },
+            }
         }],
 
-        responses:{
+        responses: {
             200: {
-                description: "Deletado com sucesso!",
-                content: {
-                    "application/json": {
-                        message: "Funcionario removido com sucesso"
+                description: "Cliente deletado com sucesso!",
+                    content: {
+                        "application/json": {
+                            message: "Cliente removido com sucesso"
+                        },
                     },
                 },
-            },
-            500: {
+            500:{
                 description: "Erro interno",
             },
         },
     },
-
     put: {
-        description: "Atualiza um funcionário existente",
-        tags: ["Funcionários"],
+        description: "Altera os campos da entidade Cliente",
+        tags: ["Clientes"],
         parameters: [{
             name: "id",
             in: "path",
-            description: "Id do funcionário",
+            description: "Id do Cliente",
             required: true,
             schema: {
                 type: "integer"
@@ -131,19 +128,18 @@ export const getDeletePutServiceById = {
             content: {
                 "application/json": {
                     schema: {
-                        $ref: "#/schemas/Funcionario",
+                    $ref: "#/schemas/clientesSchema",
                     },
                 },
             },
         },
-
-        responses: {
-            200: {
-                description: "O funcionário foi atualizado",
+        responses:{
+            200:{
+                description: "O Cliente foi criado",
                 content: {
                     "application/json": {
                         schema: {
-                            $ref: "#/schemas/Funcionario",
+                            $ref: "#/schemas/clientesSchema",
                         },
                     },
                 },
@@ -152,5 +148,5 @@ export const getDeletePutServiceById = {
                 description: "Erro interno",
             },
         },
-    },
+    }
 }

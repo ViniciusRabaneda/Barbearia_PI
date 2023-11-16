@@ -1,8 +1,12 @@
-import funcionarios from "./funcionarios.js"
+import {funcionariosPath, getDeletePutServiceById} from "./funcionarios.js"
 import { servicosPath, getDeletePutServicesById } from "./servicos.js"
+import { clientesPath, getDeletePutClientesById } from "./clientesPath.js"
 
 export default {
-    '/funcionarios': funcionarios,
+    '/funcionarios': funcionariosPath,
+    '/funcionarios{id}': getDeletePutServiceById,
     '/servicos': servicosPath,
-    '/servicos/{id}': getDeletePutServicesById
+    '/servicos/{id}': getDeletePutServicesById,
+    '/clientes':clientesPath,
+    '/clientes/{id}': getDeletePutClientesById
 }

@@ -10,7 +10,7 @@ export default class ClienteModel extends BaseModel {
         super(db, 'clientes')
     }
 // acrescenta o método findallbyclientID
-    findAllByClientId(idCliente) {
-        return this.db[this.entity].filter(item => item.idCliente === idCliente)
+    findAllByClientId(id) {
+        return this.db[this.entity].filter(item => item.id== id)
     }
 }

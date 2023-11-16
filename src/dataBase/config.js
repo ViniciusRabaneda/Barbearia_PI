@@ -1,6 +1,6 @@
 // importa todas as classes criadas
 import Servico from "../entities/servico.js"
-import Cliente from "../entities/Cliente.js"
+import Cliente from "../entities/cliente.js"
 import Funcionario from "../entities/Funcionario.js"
 import Agenda from "../entities/agenda.js"
 import HorariosDisponiveis from "../entities/Horarios.js"
@@ -34,7 +34,7 @@ const db = {
     new Agenda(4,2,1,2,'10:30','11:00'), // IdAgenda 4, cliente 2 cortando com o JP e fazendo o serviço 2
     new Agenda(5,3,1,1,'11:00','11:30'), // IdAgenda 5, cliente 3 cortando com o JP e fazendo o serviço 1
     new Agenda(6,3,1,3,'11:30','12:00') // IdAgenda 6, cliente 3 cortando com o JP e fazendo o serviço 3
-  ],
+  ]
 }
 
 // exporta o db

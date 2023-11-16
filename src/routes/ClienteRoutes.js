@@ -14,8 +14,8 @@ routes(){
       const clientes = this.db.findAll()
       res.json(clientes)
     })
-    router.get('/:idCliente', (req, res) => {
-      const clientes = this.db.findById(req.params.idCliente)
+    router.get('/:id', (req, res) => {
+      const clientes = this.db.findById(req.params.id)
       if (!clientes) {
         res.status(404).json({ message: 'Cliente não encontrado' })
       } else {
@@ -24,20 +24,28 @@ routes(){
     })
     router.post('/', (req, res) => {
       const novoCliente = req.body
+
+      if(!novoCliente.titulo) return res.status(400).json({ message: 'O título é obrigatório' })
+      if(!novoCliente.concluida) return res.status(400).json({ message: 'O campo concluída é obrigatório' })
+      if(!novoCliente.usuarioId) return res.status(400).json({ message: 'O campo usuárioId é obrigatório' })
+
       this.db.create(novoCliente)
       res.json(novoCliente)
     })
-    router.put('/:idCliente', (req, res) => {
-      const { idCliente } = req.params.idCliente
-      const cliente = req.body
+    router.put('/:id', (req, res) => {
+      const clientes = this.db.update(Number(req.params.id), req.body)
+      if(!clientes.titulo) return res.status(400).json({ message: 'O título é obrigatório' })
+      if(!clientes.concluida) return res.status(400).json({ message: 'O campo concluída é obrigatório' })
+      if(!clientes.usuarioId) return res.status(400).json({ message: 'O campo usuárioId é obrigatório' })
+      res.json(clientes)
 
-      this.db.update(idCliente, cliente)
-      res.json(cliente)
+
+
+
     })
-    router.delete('/:idCliente', (req, res) => {
-      const { idCliente } = req.params.idCliente
-      this.db.delete(idCliente)
-      res.json({ message: 'Cliente removido com sucesso' })
+    router.delete('/:id', (req, res) => {
+      this.db.delete(Number(req.params.id))
+      res.json({ message: 'Tarefa removida com sucesso' })
     })
     return router
     }
