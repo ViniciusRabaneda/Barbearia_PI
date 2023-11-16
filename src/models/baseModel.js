@@ -11,6 +11,7 @@ export default class BaseModel {
     findAll() {
         return this.db[this.entity]
     }
+
 // Traz os dados da entidade pelo id
     findById(id) {
         return this.db[this.entity].find(item => item.id == id)
