@@ -1,4 +1,5 @@
 import { Router } from "express";
+import AgendamentoModel from "../models/agendamentoModel.js";
 // Validar
 export default class AgendaRoutes {
   constructor(db) {
@@ -12,9 +13,9 @@ export default class AgendaRoutes {
       res.json(this.db.agendaJP);
     });
 
-    router.get('/:idAgenda', (req, res) => {
-      const { idAgenda } = req.params;
-      const agenda = this.db.agendaJP.find(agenda => agenda.idFuncionario === parseInt(idAgenda));
+    router.get('/:id', (req, res) => {
+      const { id } = req.params;
+      const agenda = this.db.agendaJP.find(agenda => agenda.idFuncionario === parseInt(id));
       if (!agenda) {
         res.status(404).json({ message: 'Agenda não encontrada' });
       } else {
@@ -31,19 +32,19 @@ export default class AgendaRoutes {
       res.json(novaAgenda);
     });
 
-    router.put('/:idAgenda', (req, res) => {
-      const { idAgenda } = req.params;
+    router.put('/:id', (req, res) => {
+      const { id } = req.params;
       const novaInfoAgenda = req.body;
 
-      this.db.updateAgenda(parseInt(idAgenda), novaInfoAgenda);
+      this.db.updateAgenda(parseInt(id), novaInfoAgenda);
 
       res.json(novaInfoAgenda);
     });
 
-    router.delete('/:idAgenda', (req, res) => {
-      const { idAgenda } = req.params;
+    router.delete('/:id', (req, res) => {
+      const { id } = req.params;
 
-      this.db.deleteAgenda(parseInt(idAgenda));
+      this.db.deleteAgenda(parseInt(id));
 
       res.json({ message: 'Agenda removida com sucesso' });
     });
