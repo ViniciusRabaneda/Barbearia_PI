@@ -39,3 +39,4 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, { explorer: t
 app.listen(3000,() => {
     console.log(`Servidor Rodando no Endereço http://localhost:3000`)
 })
+
