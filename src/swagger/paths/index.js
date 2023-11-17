@@ -10,6 +10,6 @@ export default {
     '/servicos/{id}': getDeletePutServicesById,
     '/clientes':clientesPath,
     '/clientes/{id}': getDeletePutClientesById,
-    '/agenda': agendaPath,
-    '/agenda/{id}': getDeletePutAgendaById
+    '/agendamento': agendaPath,
+    '/agendamento/{id}': getDeletePutAgendaById
 }
