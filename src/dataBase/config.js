@@ -1,9 +1,9 @@
 // importa todas as classes criadas
 import Servico from "../entities/servico.js"
 import Cliente from "../entities/cliente.js"
-import Funcionario from "../entities/Funcionario.js"
+import Funcionario from "../entities/funcionario.js"
 import Agenda from "../entities/agenda.js"
-import HorariosDisponiveis from "../entities/Horarios.js"
+import HorariosDisponiveis from "../entities/horarios.js"
 
 // Cria um banco de dados baseado nas classes importadas e guarda na memória do computador
 

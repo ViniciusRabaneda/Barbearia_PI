@@ -1,4 +1,4 @@
-import BaseModel from "./BaseModel.js"
+import BaseModel from "./baseModel.js"
 
 export default class ServiceModel extends BaseModel {
     constructor(db) {
