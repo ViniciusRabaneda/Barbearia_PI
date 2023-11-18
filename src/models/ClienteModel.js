@@ -1,5 +1,5 @@
 // importando o Basemodel que puxa dados do Banco de dados orignal (config)
-import BaseModel from "./BaseModel.js"
+import BaseModel from "./baseModel.js"
 
 // Cria a Classe ClienteModel e puxa referência do "pai" Basemodel
 export default class ClienteModel extends BaseModel {
