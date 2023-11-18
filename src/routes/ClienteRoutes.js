@@ -1,6 +1,47 @@
 import { Router } from "express";
 import ClienteModel from '../models/ClienteModel.js'
 
+function validarCPF(cpf) {
+  // Remover caracteres não numéricos
+  const cpfNumerico = cpf.replace(/\D/g, '');
+
+  // Verificar se o CPF tem 11 dígitos
+  if (cpfNumerico.length !== 11) {
+    return false;
+  }
+
+  // Verificar se todos os dígitos são iguais, o que torna o CPF inválido. Essa regex cria um grupo de captura para um caracter do tipo numero  -- /^(\d)\ e depois compara esse primeiro numero uma ou mais vezes. O \1 vai buscar o que foi capturado no primeiro grupo de captura e o + exige que seja o mesmo 1 ou mais vezes.  
+  if (/^(\d)\1+$/.test(cpfNumerico)) {
+    return false;
+  }
+
+  // Calcular o primeiro dígito verificador
+  let soma = 0;
+  for (let i = 0; i < 9; i++) {
+    soma += parseInt(cpfNumerico.charAt(i)) * (10 - i);
+  }
+  let resto = (soma * 10) % 11;
+  const digitoVerificador1 = (resto === 10 || resto === 11) ? 0 : resto;
+
+  // Calcular o segundo dígito verificador
+  soma = 0;
+  for (let i = 0; i < 10; i++) {
+    soma += parseInt(cpfNumerico.charAt(i)) * (11 - i);
+  }
+  resto = (soma * 10) % 11;
+  const digitoVerificador2 = (resto === 10 || resto === 11) ? 0 : resto;
+
+  // Verificar se os dígitos verificadores calculados são iguais aos informados no CPF
+  if (parseInt(cpfNumerico.charAt(9)) !== digitoVerificador1 || parseInt(cpfNumerico.charAt(10)) !== digitoVerificador2) {
+    return false;
+  }
+
+  // Se chegou até aqui, consideramos o CPF válido
+  return true;
+}
+
+
+
 export default class ClienteRoutes {  
  //puxa db do client Model, que puxa do base model, que puxa do config 
  // é necessario puxar o db para poder fazer alteração no arquivo config (adição, exclusão e alteração)
@@ -56,10 +97,10 @@ routes(){
       if(!String(novoCliente.cpfCliente)) return res.status(400).json({message: 'O CPF deve ser uma string.'})
     
         // Verifica se o CPF tem 14 dígitos -- contando . e -
-      if (novoCliente.cpfCliente.length !== 14)  return res.status(400).json({message: 'O CPF deve ser composto de 14 caracteres.'})
+      //if (novoCliente.cpfCliente.length !== 14)  return res.status(400).json({message: 'O CPF deve ser composto de 14 caracteres.'})//
 
-
-
+      // chama função validar cpf
+      if(validarCPF(novoCliente.cpfCliente) != true) return res.status(400).json({message: 'O CPF é inválido.'})
 
 // ----------------Verificações campo EMAIL --------------------//  
 

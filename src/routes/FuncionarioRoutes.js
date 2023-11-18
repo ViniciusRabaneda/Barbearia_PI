@@ -15,8 +15,8 @@ routes(){
       const funcionarios = this.db.findAll()
       res.json(funcionarios)
     })
-    router.get('/:idFuncionario', (req, res) => {
-      const funcionarios = this.db.findById(req.params.idFuncionario)
+    router.get('/:id', (req, res) => {
+      const funcionarios = this.db.findById(req.params.id)
       if (!funcionarios) {
         res.status(404).json({ message: 'Funcionário não encontrado' })
       } else {
@@ -28,15 +28,15 @@ routes(){
       this.db.create(novoFuncionario)
       res.json(novoFuncionario)
     })
-    router.put('/:idFuncionario', (req, res) => {
-      const { idFuncionario } = req.params.idFuncionario
+    router.put('/:id', (req, res) => {
+      const { id } = req.params
       const funcionario = req.body
 
-      this.db.update(idFuncionario, funcionario)
+      this.db.update(id, funcionario)
       res.json(funcionario)
     })
-    router.delete('/:idFuncionario', (req, res) => {
-      const { idFuncionario } = req.params.idFuncionario
+    router.delete('/:id', (req, res) => {
+      const { idFuncionario } = req.params.id
       this.db.delete(idFuncionario)
       res.json({ message: 'Funcionário removido com sucesso' })
     })
