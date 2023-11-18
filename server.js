@@ -35,8 +35,10 @@ app.use('/agendamento', rotaAgenda.routes())
 // Swagger
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, { explorer: true }))
 
+const port = process.env.PORT || 3000
+
 //escutar a porta 3000
-app.listen(3000,() => {
-    console.log(`Servidor Rodando no Endereço http://localhost:3000`)
+app.listen(port,() => {
+    console.log(`Servidor Rodando na porta: `+port)
 })
 
