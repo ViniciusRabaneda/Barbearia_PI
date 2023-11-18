@@ -58,9 +58,6 @@ routes(){
         // Verifica se o CPF tem 14 dígitos -- contando . e -
       if (novoCliente.cpfCliente.length !== 14)  return res.status(400).json({message: 'O CPF deve ser composto de 14 caracteres.'})
 
-
-
-
 // ----------------Verificações campo EMAIL --------------------//  
 
       //verifica se o email do cliente foi inserido

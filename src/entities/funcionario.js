@@ -1,6 +1,6 @@
 export default class Funcionario {
-    constructor(idFuncionario, nomeFuncionario, cpfFuncionario, rgFuncionario, emailFuncionario, enderecoFuncionario, pisFuncionario, horarioEntradaFuncionario, horarioSaidaFuncionario ,salarioFuncionario){
-        this.idFuncionario = idFuncionario;
+    constructor(id, nomeFuncionario, cpfFuncionario, rgFuncionario, emailFuncionario, enderecoFuncionario, pisFuncionario, horarioEntradaFuncionario, horarioSaidaFuncionario ,salarioFuncionario){
+        this.id = id;
         this.nomeFuncionario = nomeFuncionario;
         this.cpfFuncionario = cpfFuncionario;
         this.rgFuncionario = rgFuncionario;

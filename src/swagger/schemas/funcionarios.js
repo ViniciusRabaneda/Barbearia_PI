@@ -1,8 +1,8 @@
 export const Funcionario = {
     type: "object",
-    required: ["idFuncionario", "nomeFuncionario", "cpfFuncionario", "rgFuncionario", "emailFuncionario", "enderecoFuncionario", "pisFuncionario", "horarioEntradaFuncionario", "horarioSaidaFuncionario", "salarioFuncionario"],
+    required: ["id", "nomeFuncionario", "cpfFuncionario", "rgFuncionario", "emailFuncionario", "enderecoFuncionario", "pisFuncionario", "horarioEntradaFuncionario", "horarioSaidaFuncionario", "salarioFuncionario"],
     properties: {
-        idFuncionario: {
+        id: {
             type: "number",
             description: "ID do funcionário",
         },
@@ -44,7 +44,7 @@ export const Funcionario = {
         },
     },
     example: {
-        idFuncionario: 1,
+        id: 1,
         nomeFuncionario: "João",
         cpfFuncionario: "123.456.781-01",
         rgFuncionario: "12.345.678-9",
