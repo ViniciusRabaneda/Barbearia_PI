@@ -6,14 +6,19 @@ export default class AgendamentoModel extends BaseModel {
   }
 
   validarAgendamento(idFuncionario, horarioInicio, horarioFim) {
-    const horariosDisponiveis = this.db.horarios[0]; // Obtém os horários disponíveis do banco de dados
+    const horariosDisponiveis = this.db.horarios[0]; 
 
     // Verifica se o horário de início e fim está dentro dos horários disponíveis
     if (
-      !horariosDisponiveis.verificarHorarioDisponivel(horarioInicio) ||
-      !horariosDisponiveis.verificarHorarioDisponivel(horarioFim)
+        !horariosDisponiveis.verificarHorarioDisponivel(horarioInicio) ||
+        !horariosDisponiveis.verificarHorarioDisponivel(horarioFim)
     ) {
-      return false;
+        return false;
+    }
+    
+    // Verifica se o horário de início e fim são diferentes e se o horário de fim sempre é maior que o horario de inicio.
+    if (horarioFim <= horarioInicio || horarioInicio === horarioFim) {
+        return false; 
     }
 
     const agendas = this.findAll();
@@ -28,19 +33,19 @@ export default class AgendamentoModel extends BaseModel {
     );
 
     if (conflito) {
-      return false; // Retorna falso se houver conflito
+      return false; 
     }
 
     // Verificar se a diferença de horários é de no máximo 1 hora
-    const horaInicio = new Date(horarioInicio);
-    const horaFim = new Date(horarioFim);
+    const horaInicio = new Date(`01/01/2000 ${horarioInicio}`);
+    const horaFim = new Date(`01/01/2000 ${horarioFim}`);
     const diferencaEmMilissegundos = Math.abs(horaFim - horaInicio);
-    const diferencaEmHoras = diferencaEmMilissegundos / (1000 * 60 * 60);
+    const diferencaEmMinutos = diferencaEmMilissegundos / (1000 * 60);
 
-    if (diferencaEmHoras > 1) {
-      return false; // Retorna falso se a diferença de horários for maior que 1 hora
+    if (diferencaEmMinutos > 60) {
+        return false;
     }
 
-    return true; // Retorna verdadeiro se estiver tudo certo
+    return true;
   }
 }
