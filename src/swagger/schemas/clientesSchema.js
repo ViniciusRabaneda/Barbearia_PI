@@ -25,9 +25,9 @@ export const clientesSchema = {
     },
     example: {
         id: 1,
-        nomeCliente: "Pedro",
-        cpfCliente: "423.134.596-71",
-        emailCliente: "pedrinhodopneu@gmaid",
-        senhaCliente: "palmeirasnaotemmundial",
+        nomeCliente: "Cliente X",
+        cpfCliente: "199.668.020-02",
+        emailCliente: "clientex@gmail.com",
+        senhaCliente: "Senha Default",
     },
 }
