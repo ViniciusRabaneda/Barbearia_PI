@@ -41,6 +41,18 @@ function validarCPF(cpf) {
 }
 
 
+function validarEmail(email){
+  // lista de dominos válidos ** Pode ser atualizada**
+  const listaEmailPermitidos = ["@hotmail.com","@uol.com","@gmail.com","@outlook.com","@fatec.sp.gov.br","@yahoo.com"]
+  //verifica se o email digitado possui algum dos dominios lisados no vetor. O método some testa as opções do array retornando true ou false, email.endsWith, verifica o texto do array esta presente no final do email passado pelo usuário.
+
+  const emailValido = listaEmailPermitidos.some(terminacao => email.endsWith(terminacao));
+
+  //retorna true ou false
+
+  return emailValido;
+  };
+
 
 export default class ClienteRoutes {  
  //puxa db do client Model, que puxa do base model, que puxa do config 
@@ -66,58 +78,51 @@ routes(){
     router.post('/', (req, res) => {
       const novoCliente = req.body
 
-      // ----------------Verificações campo ID -------------------- //    
+// ----------------POST - Verificações campo ID -------------------- //    
       //verifica se o id do cliente já está cadastrado ou não no sistema
       if(this.db.findById(novoCliente.id) != undefined) return res.status(400).json({message: 'Este id já está cadastrado no sistema.'})
 
-      //verifica se o id foi inserido
+      //  1. verifica se o id foi inserido
       if(!novoCliente.id) return res.status(400).json({ message: 'O id é obrigatório' })
 
-      //verifica se o id contém apenas números
+      //  2. verifica se o id contém apenas números
       if(!Number(novoCliente.id)) return res.status(400).json({message: 'O id é composto apenas de números.'})
 
-
-
-
-      // ----------------Verificações campo Nome --------------------//     
-      //verifica se o nome do cliente foi inserido
+// ---------------- POST - Verificações campo Nome --------------------//     
+      
+      //  1. verifica se o nome do cliente foi inserido
       if(!novoCliente.nomeCliente) return res.status(400).json({ message: 'O nome é obrigatório' })
 
-       //verifica se o nome contém apenas letras
+       // 2. verifica se o nome contém apenas letras
        if(!String(novoCliente.nomeCliente)) return res.status(400).json({message: 'O nome deve ser composto apenas de letras.'})
 
-
-
-
-       // ----------------Verificações campo CPF --------------------//   
-      //verifica se o CPF do cliente foi inserido
+// ---------------- POST - Verificações campo CPF --------------------//   
+      
+       // 1. verifica se o CPF do cliente foi inserido
       if(!novoCliente.cpfCliente) return res.status(400).json({ message: 'O CPF é obrigatório' })
 
-      //verifica se o CPF contém apenas letras
+      //  2. verifica se o CPF contém apenas letras
       if(!String(novoCliente.cpfCliente)) return res.status(400).json({message: 'O CPF deve ser uma string.'})
-    
-        // Verifica se o CPF tem 14 dígitos -- contando . e -
-      //if (novoCliente.cpfCliente.length !== 14)  return res.status(400).json({message: 'O CPF deve ser composto de 14 caracteres.'})//
 
-      // chama função validar cpf
+      // 3. chama função validar cpf
       if(validarCPF(novoCliente.cpfCliente) != true) return res.status(400).json({message: 'O CPF é inválido.'})
 
-// ----------------Verificações campo EMAIL --------------------//  
+// ---------------- POST - Verificação campo EMAIL --------------------//  
 
-      //verifica se o email do cliente foi inserido
+      //  1. verifica se o email do cliente foi inserido
       if(!novoCliente.emailCliente) return res.status(400).json({ message: 'O email é obrigatório' })
+      
+      //  2. valida dominio do email
+      if (validarEmail(novoCliente.emailCliente) != true) return res.status(400).json({message: 'Dominio de email inválido, favor consultar lista de domínios válidos'})
 
+// ---------------- POST - Verificações campo Senha --------------------//  
 
-
-// ----------------Verificações campo Senha --------------------//  
-
-      //verifica se a senha do cliente foi inserido
+      //  1. verifica se a senha do cliente foi inserido
       if(!novoCliente.senhaCliente) return res.status(400).json({ message: 'O email é obrigatório' })
 
       //adiciona novo cliente ao db
-
       this.db.create(novoCliente)
-      
+
       //retorna o cliente adicionado ao db
       res.json(novoCliente)
     })
@@ -125,64 +130,56 @@ routes(){
 
     router.put('/:id', (req, res) => {
       const { id } = req.params
-      const clientes = req.body
+      const alterarCliente = req.body
      
       
-    // ----------------Verificações campo ID -------------------- //    
+// ---------------- PUT (ALTERAR) Verificação do campo ID -------------------- //    
 
-      //verifica se o campo id foi inserido
-      if(!clientes.id) return res.status(400).json({ message: 'O id é obrigatório' })
+      //  1. verifica se o campo id foi inserido
+      if(!alterarCliente.id) return res.status(400).json({ message: 'O id é obrigatório' })
 
-      //verifica se o id contém apenas números
-      if(!Number(clientes.id)) return res.status(400).json({message: 'O id é composto apenas de números.'})
+      //  2. verifica se o id contém apenas números
+      if(!Number(alterarCliente.id)) return res.status(400).json({message: 'O id é composto apenas de números.'})
 
+// ---------------- PUT (ALTERAR) Verificação do campo Nome --------------------//     
+     
+      //  1. verifica se o nome do cliente foi inserido
+      if(!alterarCliente.nomeCliente) return res.status(400).json({ message: 'O nome é obrigatório' })
 
+       // 2. verifica se o nome contém apenas letras
+       if(!String(alterarCliente.nomeCliente)) return res.status(400).json({message: 'O nome deve ser composto apenas de letras.'})
 
+// ---------------- PUT (ALTERAR) Verificação do campo CPF --------------------//   
+      //  1. verifica se o CPF do cliente foi inserido
+      if(!alterarCliente.cpfCliente) return res.status(400).json({ message: 'O CPF é obrigatório' })
 
-      // ----------------Verificações campo Nome --------------------//     
-      //verifica se o nome do cliente foi inserido
-      if(!clientes.nomeCliente) return res.status(400).json({ message: 'O nome é obrigatório' })
-
-       //verifica se o nome contém apenas letras
-       if(!String(clientes.nomeCliente)) return res.status(400).json({message: 'O nome deve ser composto apenas de letras.'})
-
-
-
-
-       // ----------------Verificações campo CPF --------------------//   
-      //verifica se o CPF do cliente foi inserido
-      if(!clientes.cpfCliente) return res.status(400).json({ message: 'O CPF é obrigatório' })
-
-      //verifica se o CPF contém apenas letras
-      if(!String(clientes.cpfCliente)) return res.status(400).json({message: 'O CPF deve ser uma string.'})
+      //  2. verifica se o CPF contém apenas letras
+      if(!String(alterarCliente.cpfCliente)) return res.status(400).json({message: 'O CPF deve ser uma string.'})
     
-        // Verifica se o CPF tem 14 dígitos -- contando . e -
-      if (clientes.cpfCliente.length !== 14)  return res.status(400).json({message: 'O CPF deve ser composto de 14 caracteres.'})
+      //  3. chama função validar cpf
+      if(validarCPF(alterarCliente.cpfCliente) != true) return res.status(400).json({message: 'O CPF é inválido.'})
+      
+// ---------------- PUT (ALTERAR) Verificação do campo EMAIL --------------------//  
 
+      //  1. verifica se o email do cliente foi inserido
+      if(!alterarCliente.emailCliente) return res.status(400).json({ message: 'O email é obrigatório' })
 
+      //  2. valida dominio do email
+      if (validarEmail(alterarCliente.emailCliente) != true) return res.status(400).json({message: 'Dominio de email inválido, favor consultar lista de domínios válidos'})
 
+// ---------------- PUT (ALTERAR) Verificação do campo Senha --------------------//  
 
-// ----------------Verificações campo EMAIL --------------------//  
-
-      //verifica se o email do cliente foi inserido
-      if(!clientes.emailCliente) return res.status(400).json({ message: 'O email é obrigatório' })
-
-
-
-// ----------------Verificações campo Senha --------------------//  
-
-      //verifica se a senha do cliente foi inserido
-      if(!clientes.senhaCliente) return res.status(400).json({ message: 'O email é obrigatório' })
+      //  1. verifica se a senha do cliente foi inserido
+      if(!alterarCliente.senhaCliente) return res.status(400).json({ message: 'O email é obrigatório' })
 
       //atualiza o db com o id e os parametros do cliente
-      this.db.update(id, clientes)
-
+      this.db.update(id, alterarCliente)
       // retorna o cliente alterado
-      res.json(clientes)
+      res.json(alterarCliente)
     })
     router.delete('/:id', (req, res) => {
       this.db.delete(Number(req.params.id))
-      res.json({ message: 'Tarefa removida com sucesso' })
+      res.json({ message: 'Cliente removido com sucesso' })
     })
     return router
     }
