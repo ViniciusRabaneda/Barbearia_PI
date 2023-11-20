@@ -25,6 +25,11 @@ export default class AgendaRoutes {
 
     router.post('/', (req, res) => {
       const novoAgendamento = req.body
+      // Verifica se o horário seleiconado já está cadastrado ou não no sistema.
+      const isValid = this.db.validarAgendamento(novoAgendamento.idFuncionario, novoAgendamento.horarioInicio, novoAgendamento.horarioFim);
+      if (!isValid) {
+        return res.status(400).json({ message: 'Horário indisponível para agendamento.' });
+      }
       this.db.create(novoAgendamento)
       res.json(novoAgendamento)
     })
